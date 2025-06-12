@@ -3,18 +3,56 @@
 <head>
   <title>Calculador de AOs</title>
   <style>
-    body { font-family: sans-serif; padding: 10px; }
-    input { width: 50px; }
+   body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      width: 320px;
+      text-align: center;
+      color: #262626;
+    }
+    input {
+      width: 60px;
+      padding: 4px;
+      margin-left: 5px;
+    }
+    button {
+      padding: 6px 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
   <h3>Estimativa de AOs</h3>
-  <p>Telas detectadas: <span id="screenCount">0</span></p>
-  <p>APIs detectadas: <span id="apiCount">0</span></p>
-  <label for="tables">Tabelas:</label>
-  <input type="number" id="tables" value="0">
-  <p>Total estimado: <strong id="total">0</strong> AOs</p>
-  <button id="copy">Copiar dados</button>
+  <div>
+    <p><strong>Telas detectadas:</strong> <span id="screenCount">0</span></p>
+    <p><strong>APIs detectadas:</strong> <span id="apiCount">0</span></p>
+    <label for="tables"><strong>Tabelas:</strong></label>
+    <input type="number" id="tables" value="0">
+  </div>
+
+  <div style="margin-top: 10px;">
+    <button id="startBtn" style="margin-right: 5px;">▶️ Iniciar</button>
+    <button id="stopBtn">⏹️ Parar</button>
+  </div>
+
+  <div id="logContainer" style="margin-top: 15px; max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 5px;">
+    <strong>Log de páginas:</strong>
+    <ul id="logList" style="padding-left: 20px;"></ul>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <button id="exportBtn">Exportar CSV</button>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>

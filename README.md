@@ -1,24 +1,90 @@
-# Calculador de AOs – Plugin Chrome
+# AO Estimator – Chrome Extension
 
-Uma extensão para o navegador Google Chrome que ajuda a estimar a quantidade de Application Objects (AOs) usados por uma aplicação web, especialmente útil para quem trabalha com OutSystems.
+This Chrome extension helps estimate the number of Application Objects (AOs) used in a web application, especially useful when evaluating OutSystems-based architectures or sizing similar apps.
 
-## 🚀 Funcionalidades
+---
 
-- 📄 Conta o número de **páginas/telas** visitadas (SPA e MPA)
-- 🔌 Detecta **chamadas externas de API**
-- 🧾 Permite informar manualmente a quantidade de **tabelas**
-- 📊 Calcula o total de AOs automaticamente
-- 📋 Botão para copiar os dados em formato texto
+## 🚀 Features
 
-## 📦 Instalação
+- ✅ Counts **screen/page views** while navigating
+- ✅ Detects **external API calls**
+- ✅ Allows **manual entry** of database table usage
+- ✅ Generates a **total AO estimation**
+- ✅ Displays a **log of visited URLs**
+- ✅ Supports **CSV export** for reporting
 
-1. Baixe ou clone este repositório.
-2. Acesse `chrome://extensions/` no seu navegador.
-3. Ative o **Modo desenvolvedor** (canto superior direito).
-4. Clique em **“Carregar sem compactação”** e selecione a pasta do plugin.
+---
 
-## 🖼️ Interface
+## 🧩 How it Works
 
-![Popup de exemplo](./screenshot.png)
+1. Click **Start** on the extension popup.
+2. Navigate your app normally — screens and APIs are counted.
+3. Click **Stop** when finished.
+4. Click **Export CSV** to generate a downloadable AO usage report.
 
-## 🧠 Como o cálculo funciona
+---
+
+## 📦 Installation
+
+1. Clone or download this repository.
+2. Open `chrome://extensions/` in your browser.
+3. Enable **Developer Mode**.
+4. Click **Load unpacked** and select the project folder.
+
+---
+
+## 📁 File Structure
+
+| File             | Description |
+|------------------|-------------|
+| `manifest.json`  | Chrome extension configuration |
+| `popup.html`     | User interface |
+| `popup.js`       | UI logic and state control |
+| `content.js`     | Monitors navigation and API usage |
+| `background.js`  | Reserved for future enhancements |
+| `icon.png`       | Plugin icon |
+| `README.md`      | This documentation |
+
+---
+
+## 📊 How AO is Estimated
+
+```
+Total AOs = Number of Screens + Number of API Calls + Number of Tables
+```
+
+---
+
+## ✅ Example Output (CSV)
+
+```
+Type,Value
+Screens,5
+APIs,3
+Tables,7
+Total,15
+
+Log of URLs
+,/home
+,/dashboard
+,/settings
+```
+
+---
+
+## 🔒 Permissions
+
+This extension uses:
+- `storage` to save temporary AO data
+- `activeTab` to monitor navigation
+- `scripting` to inject logic for XHR/API tracking
+
+---
+
+## 📝 License
+
+MIT License
+
+---
+
+Built with ❤️ for developer and pre-sales use.
