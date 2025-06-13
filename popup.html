@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calculador de AOs</title>
-  <style>
-   body {
-      font-family: 'IBM Plex Sans', sans-serif;
-      background-color: #f5f5f5;
-      padding: 20px;
-      width: 320px;
-      text-align: center;
-      color: #262626;
-    }
-    input {
-      width: 60px;
-      padding: 4px;
-      margin-left: 5px;
-    }
-    button {
-      padding: 6px 12px;
-      font-weight: bold;
-      border: none;
-      border-radius: 4px;
-      background-color: #007acc;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005fa3;
-    }
-  </style>
+  <title>AO Estimator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h3>Estimativa de AOs</h3>
-  <div>
-    <p><strong>Telas detectadas:</strong> <span id="screenCount">0</span></p>
-    <p><strong>APIs detectadas:</strong> <span id="apiCount">0</span></p>
-    <label for="tables"><strong>Tabelas:</strong></label>
-    <input type="number" id="tables" value="0">
+  <img src="https://www.outsystems.com/Providers/OS_UI_Website/Logo/OS-logo.svg" alt="OutSystems Logo" class="header-logo"/>
+  
+  <div class="main-stats">
+    <p><span>Screens (Unique)</span> <span id="screenCount">0</span></p>
+    <p><span>Integrations (Unique)</span> <span id="integrationCount">0</span></p>
+    <p><span>GraphQL Queries</span> <span id="queryCount">0</span></p>
+    <div class="table-input-container">
+      <label for="tables">Tables (Estimated):</label>
+      <input type="number" id="tables" value="0" min="0" autocomplete="off">
+    </div>
+    <p class="total"><span>Total Estimated AOs</span> <strong id="total">0</strong></p>
   </div>
 
-  <div style="margin-top: 10px;">
-    <button id="startBtn" style="margin-right: 5px;">▶️ Iniciar</button>
-    <button id="stopBtn">⏹️ Parar</button>
+  <div class="controls">
+    <button id="startBtn" class="os-button primary">Start</button>
+    <button id="stopBtn" class="os-button danger" style="display: none;">Stop</button>
   </div>
 
-  <div id="logContainer" style="margin-top: 15px; max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 5px;">
-    <strong>Log de páginas:</strong>
-    <ul id="logList" style="padding-left: 20px;"></ul>
+  <div id="statusText" class="status-recording" style="display: none;">
+    <div class="spinner"></div>
+    Recording...
   </div>
 
-  <div style="margin-top: 10px;">
-    <button id="exportBtn">Exportar CSV</button>
+  <div class="details-container">
+    <div class="log-box">
+      <strong>Visited Screens</strong>
+      <ul id="screenLogList"></ul>
+    </div>
+    <div class="log-box">
+      <strong>Integration Domains</strong>
+      <ul id="integrationLogList"></ul>
+    </div>
+    <div class="log-box">
+      <strong>Internal API Endpoints</strong>
+      <ul id="internalApiList"></ul>
+    </div>
+  </div>
+
+  <div class="footer-controls">
+    <button id="exportBtn" class="os-button secondary" style="display: none;">Export CSV</button>
+    <button id="resetBtn" class="os-button neutral">Reset</button>
   </div>
 
   <script src="popup.js"></script>

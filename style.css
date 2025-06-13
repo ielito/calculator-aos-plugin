@@ -1,0 +1,176 @@
+/* style.css - OutSystems Theme */
+
+/* --- Variables & General --- */
+:root {
+    --os-blue: #005a9c;
+    --os-red: #da2929;
+    --os-green: #008a00;
+    --os-gray-dark: #4a5d7a;
+    --os-gray-medium: #6b7a91;
+    --os-gray-light: #f0f3f7;
+    --os-text: #2e3a4d;
+    --os-border: #d4dde8;
+    --os-background: #ffffff;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--os-gray-light);
+    padding: 16px;
+    width: 380px;
+    color: var(--os-text);
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* --- Header --- */
+  .header-logo {
+    height: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* --- Main Stats & Total --- */
+  .main-stats {
+    background-color: var(--os-background);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--os-border);
+    margin-bottom: 16px;
+  }
+  
+  .main-stats p, .table-input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  
+  .main-stats span, .main-stats label {
+    color: var(--os-gray-medium);
+  }
+  
+  .main-stats #screenCount, .main-stats #integrationCount, .main-stats #queryCount {
+    font-weight: 600;
+    color: var(--os-text);
+    background-color: var(--os-gray-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  
+  .table-input-container input {
+    width: 70px;
+    padding: 6px;
+    border: 1px solid var(--os-border);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .total {
+    font-weight: 600;
+    font-size: 16px !important;
+    margin-top: 16px !important;
+    border-top: 1px solid var(--os-border);
+    padding-top: 16px;
+  }
+  .total span {
+    color: var(--os-text) !important;
+  }
+  .total strong {
+    color: var(--os-blue);
+  }
+  
+  /* --- Buttons --- */
+  .os-button {
+    width: 100%;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: block;
+  }
+  .os-button:active {
+    transform: scale(0.98);
+  }
+  .controls {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .os-button.primary { background-color: var(--os-blue); }
+  .os-button.primary:hover { background-color: #004b81; }
+  
+  .os-button.danger { background-color: var(--os-red); }
+  .os-button.danger:hover { background-color: #b92222; }
+  
+  .footer-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  .os-button.secondary { background-color: transparent; color: var(--os-blue); border: 1px solid var(--os-blue); }
+  .os-button.secondary:hover { background-color: #e6f1f9; }
+  
+  .os-button.neutral { background-color: var(--os-gray-medium); }
+  .os-button.neutral:hover { background-color: var(--os-gray-dark); }
+  
+  
+  /* --- Status & Details --- */
+  .status-recording {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #e6f1f9;
+    border-radius: 8px;
+    color: var(--os-blue);
+    font-weight: 500;
+    margin: 16px 0;
+  }
+  .spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(0, 90, 156, 0.3);
+    border-top-color: var(--os-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  .details-container {
+    display: flex;
+    gap: 10px;
+    text-align: left;
+  }
+  
+  .log-box {
+    flex: 1;
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid var(--os-border);
+    border-radius: 8px;
+    padding: 12px;
+    background-color: var(--os-background);
+  }
+  .log-box strong {
+    display: block;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--os-border);
+    font-size: 13px;
+    color: var(--os-text);
+  }
+  .log-box ul {
+    padding-left: 18px;
+    margin: 0;
+    font-size: 12px;
+    color: var(--os-gray-medium);
+  }
