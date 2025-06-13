@@ -1,5 +1,3 @@
-// content.js - Now classifies internal and external APIs
-
 let isActivated = false;
 
 function activateInterceptors() {
@@ -29,13 +27,12 @@ window.addEventListener('message', (event) => {
   chrome.storage.local.get('monitoring', (data) => {
     if (chrome.runtime.lastError || !data || !data.monitoring) return;
 
-    // --- CLASSIFICATION LOGIC ---
     if (url.includes("http")) {
       if (url.includes(location.host)) {
-        // It's an internal API call
+        // It's an internal API call (location)
         addItemToStorage('internalApiUrls', new URL(url).pathname);
       } else {
-        // It's an external integration
+        // It's an external integration (url.pathname)
         addItemToStorage('integrationUrls', url);
       }
     }
@@ -75,7 +72,7 @@ function checkForGraphQL(body) {
     } catch (e) { /* Not a JSON body, ignore */ }
 }
 
-// --- Activation Logic ---
+// --- Activation Logic By ielito, the fofo ---
 if (chrome.runtime && chrome.runtime.id) {
     chrome.runtime.onMessage.addListener((message) => {
         if (message.type === "ACTIVATE_MONITORING") {

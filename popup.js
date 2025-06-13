@@ -1,5 +1,3 @@
-// popup.js - Displays internal APIs and adds them to export
-
 document.addEventListener("DOMContentLoaded", () => {
   // UI Elements
   const screenCountEl = document.getElementById("screenCount");
@@ -19,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderList(element, items) {
     if (!element) return;
     element.innerHTML = "";
-    // Ensure items is an array before trying to use forEach
     if(Array.isArray(items)){
       items.forEach(item => {
         const li = document.createElement("li");
@@ -62,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     exportBtn.style.display = isMonitoring ? "none" : "block";
   }
 
-  // --- Initial Load & Real-time Updates ---
+  // --- Initial Load & Real-time Updates (or near-real time)---
 
   chrome.storage.local.get(null, (data) => {
     if (data) {
@@ -90,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       monitoring: true,
       logEntries: [],
       integrationUrls: [],
-      internalApiUrls: [], // Reset new list
+      internalApiUrls: [],
       detectedQueries: 0,
       tables: 0
     };

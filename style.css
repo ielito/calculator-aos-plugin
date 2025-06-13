@@ -1,6 +1,3 @@
-/* style.css - OutSystems Theme */
-
-/* --- Variables & General --- */
 :root {
     --os-blue: #005a9c;
     --os-red: #da2929;
@@ -23,13 +20,11 @@
     margin: 0;
   }
   
-  /* --- Header --- */
   .header-logo {
     height: 24px;
     margin-bottom: 20px;
   }
   
-  /* --- Main Stats & Total --- */
   .main-stats {
     background-color: var(--os-background);
     border-radius: 8px;
@@ -82,7 +77,6 @@
     color: var(--os-blue);
   }
   
-  /* --- Buttons --- */
   .os-button {
     width: 100%;
     padding: 10px 16px;
@@ -121,8 +115,6 @@
   .os-button.neutral { background-color: var(--os-gray-medium); }
   .os-button.neutral:hover { background-color: var(--os-gray-dark); }
   
-  
-  /* --- Status & Details --- */
   .status-recording {
     display: flex;
     align-items: center;
