@@ -6,8 +6,8 @@ This tool is ideal for pre-sales engineers, architects, and developers who need 
 
 ## ✨ Key Features
 
--   ✅ **Unique Screen Tracking**: Counts each unique page and URL state change as a distinct screen.
--   🔎 **Internal API Discovery**: Logs all internal API endpoints the application calls, serving as a powerful proxy for database table estimation.
+-   ✅ **Unique Screen Tracking**: Counts each unique page and URL state change as a distinct screen, including client-side routing in SPAs.
+-   🔎 **Internal API Discovery**: Logs all internal API endpoints the application calls, serving as a powerful proxy for database table estimation. Now with improved accuracy.
 -   🌐 **External Integration Detection**: Identifies all external domains the application communicates with via APIs.
 -   ⚡ **GraphQL Query Counting**: Detects and counts GraphQL operations within API calls.
 -   📝 **Manual Table Input**: Allows for manual entry of estimated database tables, informed by the discovered internal APIs.

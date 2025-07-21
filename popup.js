@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // UI Elements
   const screenCountEl = document.getElementById("screenCount");
   const integrationCountEl = document.getElementById("integrationCount");
+  const internalApiCountEl = document.getElementById("internalApiCount");
   const queryCountEl = document.getElementById("queryCount");
   const tablesInput = document.getElementById("tables");
   const totalEl = document.getElementById("total");
@@ -34,12 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
     screenCountEl.textContent = uniqueScreens.size;
     integrationCountEl.textContent = uniqueIntegrations.size;
+    internalApiCountEl.textContent = internalApis.size;
     queryCountEl.textContent = queryCount;
     tablesInput.value = data.tables || 0;
     
     renderList(screenLogList, [...uniqueScreens]);
     renderList(integrationLogList, [...uniqueIntegrations]);
-    renderList(internalApiList, [...internalApis]); // Render new list
+    renderList(internalApiList, [...internalApis]);
     
     updateTotal();
   }
@@ -47,9 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateTotal() {
     const screen = parseInt(screenCountEl.textContent) || 0;
     const integration = parseInt(integrationCountEl.textContent) || 0;
+    const internalApi = parseInt(internalApiCountEl.textContent) || 0;
     const queries = parseInt(queryCountEl.textContent) || 0;
     const tables = parseInt(tablesInput.value) || 0;
-    totalEl.textContent = screen + integration + queries + tables;
+    totalEl.textContent = screen + integration + internalApi + queries + tables;
   }
   
   function updateInterface(isMonitoring) {
@@ -121,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const internalApis = new Set(data.internalApiUrls || []);
         const queryCount = data.detectedQueries || 0;
         const tables = data.tables || 0;
-        const total = uniqueScreens.size + uniqueIntegrationDomains.size + queryCount + tables;
+        const total = uniqueScreens.size + uniqueIntegrationDomains.size + internalApis.size + queryCount + tables;
 
         let csvContent = "data:text/csv;charset=utf-8,";
         csvContent += "Category,Count\n";

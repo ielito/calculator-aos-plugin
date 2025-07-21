@@ -152,6 +152,9 @@
     padding: 12px;
     background-color: var(--os-background);
   }
+  .log-box.full-width {
+    flex-basis: 100%;
+  }
   .log-box strong {
     display: block;
     margin-bottom: 8px;
